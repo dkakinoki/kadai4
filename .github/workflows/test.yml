@@ -10,6 +10,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Grant execute permission
+      run: chmod +x gcd.sh test_gcd.sh
+
     - name: Run the GCD script test
-      run: chmod +x ./test_gcd.sh && ./test_gcd.sh
+      run: ./test_gcd.sh
 
