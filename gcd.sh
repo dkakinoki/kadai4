@@ -10,16 +10,11 @@ is_natural_number() {
 }
 
 gcd() {
-    local a=$1
-    local b=$2
-
-    while [ $b -ne 0 ]; do
-        local remainder=$((a % b))
-        a=$b
-        b=$remainder
-    done
-
-    echo $a
+    if (( $2 == 0 )); then
+       echo $1
+    else
+       echo $(gcd $2 $(( $1 % $2 )))
+    fi
 }
 
 if [ $# -ne 2 ]; then
